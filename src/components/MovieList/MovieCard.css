@@ -31,6 +31,8 @@
   justify-content: end;
   opacity: 0;
   transition: all 0.2s ease-in-out;
+  z-index: 2;
+  color: #fff;
 }
 
 .movie_card:hover .movie_details {
@@ -59,4 +61,8 @@
 .movie_description {
   font-size: 12px;
   font-style: italic;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
