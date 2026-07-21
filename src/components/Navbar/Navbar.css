@@ -25,7 +25,9 @@ body.light-mode .navbar > h1 {
   /* gap: 24px; */
 }
 
-.navbar_links > a {
+.navbar_links > a,
+.navbar_links > a:link,
+.navbar_links > a:visited {
   display: flex;
   align-items: center;
   font-size: 20px;
@@ -33,6 +35,11 @@ body.light-mode .navbar > h1 {
   color: #fff;
   text-decoration: none;
   padding: 0 15px;
+  scroll-behavior: smooth;
+}
+
+.navbar_links > a:hover {
+  color: #ffe400;
 }
 
 body.light-mode .navbar_links > a {

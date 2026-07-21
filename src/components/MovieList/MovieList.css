@@ -49,6 +49,11 @@ body.light-mode .movie_filter_item.active {
   margin: 0 10px;
 }
 
+.movie_list {
+  min-height: calc(100vh - 80px);
+  padding: 20px 30px;
+}
+
 .movie_cards {
   display: flex;
   flex-wrap: wrap;
