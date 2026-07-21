@@ -5,9 +5,17 @@
   margin-bottom: 5px;
 }
 
+body.light-mode .movie_list_header {
+  border-bottom: 1px solid #ccc;
+}
+
 .movie_list_heading {
   font-size: 26px;
   color: #ffe400;
+}
+
+body.light-mode .movie_list_heading {
+  color: #000;
 }
 
 .movie_filter {
@@ -23,6 +31,10 @@
 .movie_filter_item.active {
   border-bottom: 1px solid #e6e6e6;
   font-weight: 500;
+}
+
+body.light-mode .movie_filter_item.active {
+  border-bottom: 1px solid #333;
 }
 
 .movie_sorting {

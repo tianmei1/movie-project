@@ -13,9 +13,17 @@
 }
 
 body {
+  font-family: "Montserrat", sans-serif;
+}
+
+body.dark-mode {
   background-color: #101010;
   color: #fff;
-  font-family: "Montserrat", sans-serif;
+}
+
+body.light-mode {
+  background-color: #f5f5f5;
+  color: #000;
 }
 
 .align_center {
