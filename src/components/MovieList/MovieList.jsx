@@ -4,9 +4,12 @@ import Fire from "../../assets/fire.png";
 // import Star from "../../assets/glowing-star.png";
 // import Party from "../../assets/partying-face.png";
 import MovieCard from "./MovieCard";
+import FilterGroup from "./FilterGroup";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
+  const [filterMovies, setFilterMovies] = useState([]);
+  const [minRating, setMinRating] = useState(0);
 
   useEffect(() => {
     fetchMovies();
@@ -18,6 +21,18 @@ const MovieList = () => {
     );
     const data = await response.json();
     setMovies(data.results);
+    setFilterMovies(data.results);
+  };
+
+  const handleFilter = (rate) => {
+    if (rate === minRating) {
+      setMinRating(0);
+      setFilterMovies(movies);
+    } else {
+      setMinRating(rate);
+      const filtered = movies.filter((movie) => movie.vote_average >= rate);
+      setFilterMovies(filtered);
+    }
   };
 
   return (
@@ -28,11 +43,7 @@ const MovieList = () => {
         </h2>
 
         <div className="align_center movie_list_fs">
-          <ul className="align_center movie_filter">
-            <li className="movie_filter_item active">8+ Star</li>
-            <li className="movie_filter_item">7+ Star</li>
-            <li className="movie_filter_item">6+ Star</li>
-          </ul>
+          <FilterGroup minRating={minRating} onRatingClick={handleFilter} />
 
           <select name="" id="" className="movie_sorting">
             <option value="">SortBy</option>
@@ -46,7 +57,7 @@ const MovieList = () => {
         </div>
       </header>
       <div className="movie_cards">
-        {movies.map((movie) => (
+        {filterMovies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
