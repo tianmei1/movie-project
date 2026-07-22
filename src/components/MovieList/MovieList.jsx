@@ -5,7 +5,7 @@ import "./MovieList.css";
 import MovieCard from "./MovieCard";
 import FilterGroup from "./FilterGroup";
 
-const MovieList = ({ type, title, emoji, sectionId }) => {
+const MovieList = ({ type, title, emoji }) => {
   const [movies, setMovies] = useState([]);
   const [filterMovies, setFilterMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
@@ -51,7 +51,7 @@ const MovieList = ({ type, title, emoji, sectionId }) => {
   };
 
   return (
-    <section id={sectionId} className="movie_list">
+    <section className="movie_list">
       <header className="align_center movie_list_header">
         <h2 className="align_center movie_list_heading">
           {title}{" "}
